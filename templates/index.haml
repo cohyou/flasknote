@@ -1,0 +1,7 @@
+%html
+    %body
+        %ul.entries
+            -for entry in entries:
+                %li
+                    {{ entry.title | safe }}
+                    {{ entry.body | safe }}

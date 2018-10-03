@@ -11,6 +11,7 @@ class FlaskWithHamlish(Flask):
 app = FlaskWithHamlish(__name__)
 
 db_uri = 'sqlite:///' + os.path.join(app.root_path, 'flasknote.db')
+db_uri = os.environ.get('DATABASE_URL') or 'postgresql://localhost:5432/flasknote'
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
